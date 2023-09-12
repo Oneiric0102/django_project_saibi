@@ -6,28 +6,39 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- 헤더 -->
     <header>
-        <div class ="top-left-img"></div>
-        <div class = "top-filter-buttons">
-            <button onclick="">일상</button>
-            <button onclick="">요리</button>
-            <button onclick="">여행</button>
-            <button onclick="">영화</button>
-            <button onclick="">IT</button>
+        <div class="nav-bar">
+            <div class="nav-container">
+            <a href="#">
+                <img src="{%static 'img/header1.svg'%}" alt="헤더 로고"
+            /></a>
+            <div class="nav-buttons">
+                <div class="nav-topics">
+                <a href="#">일상</a>
+                <a href="#">요리</a>
+                <a href="#">여행</a>
+                <a href="#">영화</a>
+                <a href="#">IT</a>
+                </div>
+                <div class="row-box">
+                {% if user.is_authenticated %}
+                <button class="logout-button" onclick="">Logout</button>
+                <button class="primary-button" onclick="">Just Write!</button>
+                {% else %}
+                <button class="primary-button" onclick="">Login</button> 
+                {% endif %}
+                </div>
+            </div>
+            </div>
         </div>
-        <div class ="top-right-img">
-            <!-- 이미지로 변환 가능 -->
-            {% if user.is_authenticated %}
-            <button onclick="">Logout</button>
-            <button onclick="">Just Write</button>
-            {% else %}
-            <button onclick="">Login</button>
-            {% endif %}
-        </div>
-    </header>
+        </header>
     {% block content %}
     {% endblock content %}
-    <footer>
-        <span>Made with Django</span>
-    </footer>
+    <!-- 하단 -->
+    <footer class="footer">
+        <div class="container">
+          <p>Made with <span>Django</span></p>
+        </div>
+      </footer>
 </body>
