@@ -29,5 +29,11 @@
                 <button onclick="">글작성</button>
             </div>
     </aside>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="save_draft" value="임시 저장">
+            <input type="submit" name="publish" value="게시">
+        </form>
 </section>
 {% endblock %}
