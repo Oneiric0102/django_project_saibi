@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('blog_app.urls'))
+    path('',include('blog_app.urls')),
+    ############################################################################## 09/12추가3
+    path('accounts/',include('allauth.urls')),
+    ############################################################################## 09/12추가3
+    
 ]
