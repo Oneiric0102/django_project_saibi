@@ -1,55 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- 헤더 -->
-    <header>
-        <div class ="top-left-img"></div>
-        <div class = "top-filter-buttons">
-            <button onclick="">일상</button>
-            <button onclick="">요리</button>
-            <button onclick="">여행</button>
-            <button onclick="">영화</button>
-            <button onclick="">IT</button>
-        </div>
-        <div class ="top-right-img">
-            <!-- 이미지로 변환 가능 -->
-            <button onclick="">logout</button>
-            <button onclick="">just Write</button>
-        </div>
-    </header>
-    <!-- 메인-->
-    <section class ="Write">
-        <article class ="content">
-            <div class="title"></div>
-            <div class="detail"></div>
-        </article>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class ="Write">
+    <article class ="content">
+        <div class="title"></div>
+        <div class="detail"></div>
+    </article>
 
-        <aside class="Content-option">
-            <!-- AI 글 자동완성 -->
-            <div class="autocomplete"></div>
-            <!-- TOPOIC -->
-            <div class="Topic"></div>
-            <!-- UPLOAD INFO -->
-            <div class="Upload-Info"></div>
-                <!-- 이미지 업로드 -->
-                <div class="Img-Upload"></div> 
-                <!-- 글 저장 -->
-                <div class="Save">
-                    <!-- 이미지로 변환 가능 -->
-                    <button onclick="">임시저장</button>
-                    <button onclick="">글작성</button>
-                </div>
-        </aside>
-    </section>
-
-    <!-- 하단 -->
-    <footer>
-        <span>Made with Django</span>
-    </footer>
-</body>
-</html> 
+    <aside class="Content-option">
+        <!-- AI 글 자동완성 -->
+        <div class="autocomplete">AI 글 자동완성</div>
+        <!-- TOPOIC -->
+        <div class="Topic">
+            <input type="radio" name="topic" value="daily">일상
+            <input type="radio" name="topic" value="cook">요리
+            <input type="radio" name="topic" value="travel">여행
+            <input type="radio" name="topic" value="movie">영화
+            <input type="radio" name="topic" value="IT">IT / 전자기기
+        </div>
+        <!-- UPLOAD INFO -->
+        <div class="Upload-Info"></div>
+            <!-- 이미지 업로드 -->
+            <input type="file" id="fileUpload" />
+            <!-- 글 저장 -->
+            <div class="Save">
+                <!-- 이미지로 변환 가능 -->
+                <button onclick="">임시저장</button>
+                <button onclick="">글작성</button>
+            </div>
+    </aside>
+</section>
+{% endblock %}

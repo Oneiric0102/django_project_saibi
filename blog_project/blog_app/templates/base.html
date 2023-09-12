@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="nav-bar">
+            <div class="nav-container">
+            <a href="#">
+                <img src="{%static 'img/header1.svg'%}" alt="헤더 로고"
+            /></a>
+            <div class="nav-buttons">
+                <div class="nav-topics">
+                <a href="#">일상</a>
+                <a href="#">요리</a>
+                <a href="#">여행</a>
+                <a href="#">영화</a>
+                <a href="#">IT</a>
+                </div>
+                <div class="row-box">
+                {% if user.is_authenticated %}
+                <button class="logout-button" onclick="">Logout</button>
+                <button class="primary-button" onclick="">Just Write!</button>
+                {% else %}
+                <button class="primary-button" onclick="">Login</button> 
+                {% endif %}
+                </div>
+            </div>
+            </div>
+        </div>
+        </header>
+    {% block content %}
+    {% endblock content %}
+    <!-- 하단 -->
+    <footer class="footer">
+        <div class="container">
+          <p>Made with <span>Django</span></p>
+        </div>
+      </footer>
+</body>

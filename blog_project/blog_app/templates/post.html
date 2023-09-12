@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <!--메인-->
+    <article class = "Post-main">
+        <!-- 작성된 게시글 -->
+        <div class="Post-written">
+            {{post.upload_date}}
+            {{post.title}}
+            {{post.writer}}
+            {{post.topic}}
+            {{post.content}}
+        </div>
+        <!-- 오른쪽 사이드 : 추천게시글 리스트 = recommended_post-->
+        <aside class="Other-list">
+            <ul>
+                {% for recommend in recommended_post %}
+                    <li>
+                        <a href="">
+
+                        </a>
+                        <img src="{{recommend.img_url}}" alt="">
+                        {{recommend.title}}
+                    </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </article>
+    <footer>
+        <div class="Post-menu">
+            {% if user.is_authenticated %}
+            <a href="{% url "edit" %}">수정하기</a>
+            <a href="{% url "delete" %}">삭제하기</a>
+            {% endif %}
+            <button onclick="">공유하기</button>
+        </div>
+        <div>
+            다음글
+            <a href="{% url "post" owner_id=next_post.writer post_id=next_post.id%}">
+                {{next_post.title}}
+                {{next_post.upload_date}}
+            </a>
+        </div>
+        <div>
+            이전글
+            <a href="{% url "post" owner_id=prev_post.writer post_id=prev_post.id%}">
+                {{prev_post.title}}
+                {{prev_post.upload_date}}
+            </a>
+        </div>
+    </footer>
+
+</section>
+{% endblock %}
