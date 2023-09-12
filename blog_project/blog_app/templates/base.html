@@ -1,14 +1,11 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/navi_black.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <!-- 헤더 -->
     <header>
         <div class ="top-left-img"></div>
         <div class = "top-filter-buttons">
@@ -20,23 +17,17 @@
         </div>
         <div class ="top-right-img">
             <!-- 이미지로 변환 가능 -->
-            <button onclick="">logout</button>
-            <button onclick="">just Write</button>
+            {% if user.is_authenticated %}
+            <button onclick="">Logout</button>
+            <button onclick="">Just Write</button>
+            {% else %}
+            <button onclick="">Login</button>
+            {% endif %}
         </div>
     </header>
-
-    <!-- 메인-->
-    <section class ="main">
-        <!-- 최고 조회수 게시글 -->
-        <article class = "best-post">best-post</article>
-            <div class="READ MORE">read more</div>
-        <!-- 전체 게시글들 -->
-        <article class = "posts">posts</article>
-    </section>
-
-    <!-- 하단 -->
+    {% block content %}
+    {% endblock content %}
     <footer>
         <span>Made with Django</span>
     </footer>
 </body>
-</html>
