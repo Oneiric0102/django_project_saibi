@@ -7,11 +7,11 @@ from .forms import PostForm
 
 # Create your views here.
 def admin_page(request):
-    return render(request, "admin.html")
+    return render(request, "base.html")
 def board_page(request):
     return render(request, "board.html")
 def client_page(request):
-    return render(request, "client.html")
+    return render(request, "post.html")
 # def write_page(request):
 #     return render(request, "write.html")
 

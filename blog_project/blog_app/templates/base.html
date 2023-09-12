@@ -1,3 +1,5 @@
+{% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +25,13 @@
                 </div>
                 <div class="row-box">
                 {% if user.is_authenticated %}
-                <button class="logout-button" onclick="">Logout</button>
+                <button class="logout-button" onclick=""><a href="javascript:{document.getElementById('logout').submit()}">logout</a></button>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %} <input type="hidden" />
+                </form>
                 <button class="primary-button" onclick="">Just Write!</button>
                 {% else %}
-                <button class="primary-button" onclick="">Login</button> 
+                <button class="primary-button" onclick=""><a href="{% url 'login' %}">Login</a></button> 
                 {% endif %}
                 </div>
             </div>
@@ -38,7 +43,7 @@
     <!-- 하단 -->
     <footer class="footer">
         <div class="container">
-          <p>Made with <span>Django</span></p>
+            <p>Made with <span>Django</span></p>
         </div>
-      </footer>
+    </footer>
 </body>
