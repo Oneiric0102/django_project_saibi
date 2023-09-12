@@ -49,6 +49,10 @@ a:active {
     gap: 40px;
 }
 
+.nav-topics a {
+    text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+}
+
 button{
     cursor: pointer;
     all: unset;
@@ -65,7 +69,7 @@ button:hover{
     text-decoration: none;
     text-align: center;
     font-weight: bold;
-
+    color: #F9F8F4;
     padding: 10px 25px;
 }
 

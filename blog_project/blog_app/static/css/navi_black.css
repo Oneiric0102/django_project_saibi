@@ -9,7 +9,7 @@
     height: 104px;
     position: fixed;
     top: 0;
-    background-color: #1e1e1e;
+    background-color: #000;
     width: 100%;
     z-index: 999;
     color: #f9f8f4;
@@ -48,6 +48,9 @@ a:active {
     display: flex;
     gap: 40px;
 }
+.nav-topics a {
+    text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+}
 
 button{
     cursor: pointer;
@@ -65,7 +68,7 @@ button:hover{
     text-decoration: none;
     text-align: center;
     font-weight: bold;
-
+    color:#1e1e1e;
     padding: 10px 25px;
     }
 
