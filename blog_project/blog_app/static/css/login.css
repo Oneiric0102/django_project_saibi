@@ -1,0 +1,122 @@
+*{
+    font-family: 'Pretendard', sans-serif;
+}
+
+body {
+    background-color: #f9f8f4;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+}
+
+
+button[type="submit"] {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 10px 20px; 
+    border: none; 
+    width: 100%;
+}
+
+input{
+    width:-webkit-fill-available;
+    border: none;
+    border-bottom: 1px solid #222;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input::placeholder{
+    color: #5C5C5C;
+}
+
+h2{
+    color: #1e1e1e;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 300px;
+    min-height: 100dvh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-size: 13px;
+
+}
+
+.social {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap : 5px;
+    margin-bottom: 10px;
+}
+
+.social a{
+    color: white;
+}
+
+.social_img {
+    width: 30px;
+    left:0;
+    border-right: 1px solid white;
+    /* border:1px solid white; */
+}
+
+.social_flex{
+    display: flex;
+    text-align: center;
+    justify-content: left;
+    flex-direction: row;
+    gap : 5px;
+    margin : 3px;
+}
+
+.login {
+    background-color: #f9f8f4;
+    border: none;
+    color : black;
+    font-weight: 600;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px;
+    color:#fff;
+}
+
+
+.box{
+    background-color: #fff;
+    padding: 60px 50px;
+    border: 1px solid #cac8c5;
+}
+
+p{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 4px;
+}
+
+a{
+    text-decoration: none;
+    text-decoration-color: #222; 
+    color: #222;
+}
+
+a:hover{
+    cursor: pointer;
+}
