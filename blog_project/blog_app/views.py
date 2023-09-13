@@ -24,7 +24,7 @@ def board_page(request):
 
 # 카테고리별 게시판 페이지
 def board_categorized(request, category):
-    categorized_posts = Board.objects.filter(category_name == category).order_by(
+    categorized_posts = Board.objects.filter(category_name=category).order_by(
         "-created_at"
     )
     context = {"posts": categorized_posts, "category": category}
@@ -49,7 +49,7 @@ def signup(request):
             )
             # 로그인 한다
             # auth.login(request, user)
-            return redirect("admins")
+            return redirect("/")
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, "signup.html")
 
@@ -70,7 +70,7 @@ def login(request):
         if user is not None:
             # 로그인 한다
             auth.login(request, user)
-            return redirect("admins")
+            return redirect("/")
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
