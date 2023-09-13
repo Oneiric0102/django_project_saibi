@@ -13,29 +13,29 @@
 <body>
     <!-- 헤더 -->
     <header>
-        <div class="nav-bar">
-            <div class="nav-container">
+        <div class="nav-bar_w">
+            <div class="nav-container_w">
             <a href="#">
-                <img src="{%static 'img/header1.svg'%}" alt="헤더 로고"
+                <img src="{%static 'img/header2.svg'%}" alt="헤더 로고"
             /></a>
-
-            <div class="nav-buttons">
-                <div class="nav-topics">
+            
+            <div class="nav-buttons_w">
+                <div class="nav-topics_w">
                 <a href="#">일상</a>
                 <a href="#">요리</a>
                 <a href="#">여행</a>
                 <a href="#">영화</a>
                 <a href="#">IT</a>
                 </div>
-                <div class="row-box">
+                <div class="row-box_w">
                 {% if user.is_authenticated %}
-                <button class="primary-button logout-button" onclick=""><a href="javascript:{document.getElementById('logout').submit()}" style="color:black" >logout</a></button>
+                <button class="primary-button_w logout-button_w" onclick=""><a href="javascript:{document.getElementById('logout').submit()}" style="color:white" >logout</a></button>
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %} <input type="hidden" />
                 </form>
-                <button class="primary-button" onclick="">Just Write!</button>
+                <button class="primary-button_w" onclick="">Just Write!</button>
                 {% else %}
-                <button class="primary-button" onclick=""><a href="{% url 'login' %}" style="color:black">Login</a></button> 
+                <button class="primary-button_w" onclick=""><a href="{% url 'login' %}" style="color:white">Login</a></button> 
                 {% endif %}
                 </div>
             </div>

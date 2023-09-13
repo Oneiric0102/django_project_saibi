@@ -2,7 +2,7 @@
 *{
     font-family: 'Pretendard', sans-serif;
 }
-.nav-bar{
+.nav-bar_w{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-.nav-container{
+.nav-container_w{
     width: 1024px;
     display: flex;
     align-items: center;
@@ -38,18 +38,18 @@ a:active {
     color : #1e1e1e
 }
 
-.nav-buttons{
+.nav-buttons_w{
     display: flex;
     align-items: center;
     gap: 56px;
 }
 
-.nav-topics{
+.nav-topics_w{
     display: flex;
     gap: 40px;
 }
 
-.nav-topics a {
+.nav-topics_w a {
     text-decoration: none; /* 링크 텍스트 밑줄 제거 */
 }
 
@@ -62,7 +62,7 @@ button:hover{
     cursor: pointer;
 }
 
-.primary-button {
+.primary-button_w {
     display: inline-block;
     background-color: #1e1e1e;
     border-radius: 2px; /* 너비와 높이가 같으므로 50%로 설정하면 동그라미 모양이 됩니다 */
@@ -73,19 +73,19 @@ button:hover{
     padding: 10px 25px;
 }
 
-.primary-button:hover {
+.primary-button_w:hover {
     background-color: #696969;
     transition: transform 0.8s, background-color 0.3s;
     color: #1e1e1e;
 }
 
-.logout-button:hover{
+.logout-button_w:hover{
     color: rgb(255, 162, 162);
     transition: transform 0.8s, color 0.3s;
 }
 
 
-.row-box{
+.row-box_w{
     display: flex;
     align-items: center;
     gap: 20px;

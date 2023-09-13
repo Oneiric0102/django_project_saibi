@@ -8,7 +8,7 @@ body{
 
 }
 
-.container{
+.container_write{
     width: 1024px;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ form{
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
+}
 
 
 .post-info-box {
