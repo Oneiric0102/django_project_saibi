@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={% static 'css/login.css' %}>
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon_2.ico' %}?{% now "U" %}">
+    <title>사이비 인증</title>
 </head>
 <body>
     {% if user.is_authenticated %}
@@ -19,11 +20,12 @@
     {% else %}
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-        <h2>Login</h2>
+        <img style="width:200px;height:200px;align-self: center;" src="{% static '/img/42b_w.svg'%}">
         <div class="box">
+            <h3>Who are you?</h3><br>
             <input type="text" name="username" placeholder="user name">
             <input type="password" name="password" placeholder="password">
-            <input type="submit" value="로그인" class="login">
+            <input type="submit" value="Login" class="login">
             <div class="social">
                 <a href="{% provider_login_url 'google' %}" style="background-color:black">
                     <div class="social_flex"><div class="social_img"><img src="{% static 'img/google.svg' %}"></div><div>Login with Google</div></div>
@@ -35,7 +37,8 @@
                     <div class="social_flex"><div class="social_img"><img src="{% static 'img/kakao.svg' %}"></div><div>Login with Kakao</div></div>
                 </a>
             </div>
-            <a href="{% url 'signup' %}">회원가입</a>
+            <a href="{% url 'signup' %}" style="color:white;">Signup /</a>
+            <a href="{% url 'board' %}" style="color:white;"> Home</a>
         </div>
     </form>
     {% endif %}

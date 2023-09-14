@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: #f9f8f4;
+    /* background-color: #f9f8f4; */
+    background-color: black;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -26,6 +27,7 @@ input{
     padding: 10px;
     font-size: 14px;
     margin-bottom: 10px;
+    /* border-radius: 20px; */
 }
 
 input:focus{
@@ -38,7 +40,7 @@ input::placeholder{
 
 h2{
     color: #1e1e1e;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 900;
     margin-bottom: 20px;
 }
@@ -65,23 +67,31 @@ form {
 }
 
 .social a{
+    /* border-radius: 20px; */
     color: white;
+    border: 1px solid white;
 }
 
 .social_img {
     width: 30px;
     left:0;
     border-right: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* border:1px solid white; */
 }
 
 .social_flex{
     display: flex;
     text-align: center;
+    align-items: center;
     justify-content: left;
     flex-direction: row;
     gap : 5px;
-    margin : 3px;
+    margin : 5px;
+    height: 30px;
+    
 }
 
 .login {
@@ -99,9 +109,12 @@ button{
 
 
 .box{
-    background-color: #fff;
-    padding: 60px 50px;
+    background-color: #808080;
+    padding: 50px;
+    padding-top: 20px;
     border: 1px solid #cac8c5;
+    margin-bottom: 10px;
+    /* border-radius: 50px; */
 }
 
 p{
@@ -119,4 +132,59 @@ a{
 
 a:hover{
     cursor: pointer;
+}
+
+.failed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 30px;
+}
+
+.failed button{
+    font-size: 30px;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.failed_b {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-size: 30px;
+    color: white;
+}
+
+.failed_b button{
+    font-size: 30px;
+    font-weight: 700;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.failed_b button a{
+    color: white;
+    
+}
+
+.home_btn{
+    width: 50%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #808080;
+    color : black;
+    font-weight: 600;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
 }

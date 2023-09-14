@@ -13,4 +13,5 @@ urlpatterns = [
     path("logout/", blog_app.views.logout, name="logout"),
     # path("edit/<int:post_id>", views.edit, name="edit"),
     # path("delete/<int:post_id>", views.delete, name="delete"),
+    path("failed/", blog_app.views.signup, name="failed"),
 ]
