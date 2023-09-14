@@ -1,54 +1,55 @@
-{% extends 'base_w.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base_w.html' %} {% load static %} {% block content %}
 <head>
-    <link rel="stylesheet" href="{% static 'css/write.css' %}?{% now "U" %}">
+  <link rel="stylesheet" href="{% static 'css/write.css' %}?{% now "U" %}">
 </head>
-<section class ="Write">
-    <article class ="content">
-        <div class="title"></div>
-        <div class="detail"></div>
-    </article>
+<!-- 메인-->
+<div class="container_write">
+  <div class="big-box">
+    <form class="write-big-box">
+      <div>
+        <form method="POST" class="write-box">
+          {% csrf_token %} {{form.media}} {{form.as_p}}
+        </form>
+      </div>
 
-    <aside class="Content-option">
-    <!-- 메인-->
-    <div class="container_write">
-        <div class="big-box">
-            <form>
-                <div class="write-box">
-                    <input class="title" type="text" placeholder="Title">
-                    <textarea placeholder="Write here..."></textarea>
-                </div>
+      <div class="post-info-box">
+        <button class="ai-button">
+          <img src="{% static 'img/AI.svg' %}" alt="AI 로고" />
+        </button>
+        <div class="box">
+          <h2>TOPIC</h2>
 
-                <div class="post-info-box">
-                    <button class="ai-button">
-                        <img src="{% static 'img/AI.svg' %}" alt="AI 로고" />
-                    </button>
-                    <div class="box">
-                        <h2>TOPIC</h2>
+          <label
+            ><input type="checkbox" name="topic" value="일상" /> 일상</label
+          >
 
-                            <label><input type="checkbox" name="topic" value="일상"> 일상</label>
+          <label
+            ><input type="checkbox" name="topic" value="요리" /> 요리</label
+          >
 
-                            <label><input type="checkbox" name="topic" value="요리"> 요리</label>
+          <label
+            ><input type="checkbox" name="topic" value="여행" /> 여행</label
+          >
 
-                            <label><input type="checkbox" name="topic" value="여행"> 여행</label>
+          <label
+            ><input type="checkbox" name="topic" value="영화" /> 영화</label
+          >
 
-                            <label><input type="checkbox" name="topic" value="영화"> 영화</label>
-
-                            <label><input type="checkbox" name="topic" value="IT"> IT / 전자기기</label>
-                    </div>
-                    <div class="box">
-                        <h2>UPLOAD INFO</h2>
-                        <button class="button-line">이미지 업로드</button>
-                            <div class="save-box">
-                                <button class="temp-save-button">임시저장</button>
-                                <button class="save-button">글 작성</button>
-                            </div>
-                    </div>
-                </div>
-            </form>
+          <label
+            ><input type="checkbox" name="topic" value="IT" /> IT /
+            전자기기</label
+          >
         </div>
-    </div>
-    </aside>
-</section>
+        <div class="box">
+          <h2>UPLOAD INFO</h2>
+          <button class="button-line">이미지 업로드</button>
+          <div class="save-box">
+            <button class="temp-save-button">임시저장</button>
+            <button class="save-button">글 작성</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}

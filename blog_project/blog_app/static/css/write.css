@@ -21,7 +21,7 @@ body{
 
 .big-box{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
 }
 
@@ -34,7 +34,7 @@ body{
     justify-content: space-between;
 }
 
-form{
+.write-big-box{
     display: flex;
     flex-direction: row;
     gap: 20px;
