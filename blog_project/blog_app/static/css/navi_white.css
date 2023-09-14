@@ -1,8 +1,3 @@
-/* write, board */
-* {
-    font-family: 'Pretendard', sans-serif;
-}
-
 .nav-bar_w {
     display: flex;
     align-items: center;
@@ -31,20 +26,16 @@
     animation-name: slide_open;
 }
 
-@keyframes slide_open {
-    from {
-        margin-left: -320px;
-    }
-
-    to {
-        margin-left: 0px;
-    }
-}
-
 .mobile-nav-menu_w a {
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
+    border-radius: 5px;
     color: #1e1e1e;
+}
+
+.mobile-nav-menu_w a:hover {
+    background-color: #e7e3da;
+    transition: transform 0.8s, background-color 0.3s;
 }
 
 .nav-container_w {

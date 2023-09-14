@@ -5,7 +5,9 @@ from ckeditor.widgets import CKEditorWidget
 
 class TempPostForm(forms.ModelForm):
     is_draft = forms.BooleanField(
-        required=False, initial=True, widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+        required=False,
+        initial=True,
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"}),
     )
 
     class Meta:
@@ -19,7 +21,7 @@ class PostForm(forms.ModelForm):
         label="",
         widget=forms.TextInput(
             attrs={
-                "style": "border: 1px solid #dbdbdb; width: 735px; height:30px;",
+                "style": "border: 1px solid #dbdbdb; width: 735px; height:30px; margin-bottom:10px",
                 "placeholder": " 제목",
             }
         ),

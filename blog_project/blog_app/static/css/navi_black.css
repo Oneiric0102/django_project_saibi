@@ -1,21 +1,3 @@
-/* admin, client */
-* {
-    font-family: 'Pretendard', sans-serif;
-}
-
-.display_none {
-    display: none !important;
-}
-
-.desktop {
-    display: flex;
-}
-
-.mobile {
-    display: none;
-    flex-direction: column;
-}
-
 .nav-bar {
     display: flex;
     align-items: center;
@@ -31,15 +13,6 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-.moblie-nav {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-top: 104px;
-    position: fixed;
-    z-index: 1000;
-}
-
 .mobile-nav-menu {
     flex-basis: 320px;
     flex-grow: 0;
@@ -53,42 +26,16 @@
     animation-name: slide_open;
 }
 
-@keyframes slide_open {
-    from {
-        margin-left: -320px;
-    }
-
-    to {
-        margin-left: 0px;
-    }
-}
-
-@keyframes slide_close {
-    from {
-        margin-left: 0px;
-    }
-
-    to {
-        margin-left: -320px;
-    }
-}
-
 .mobile-nav-menu a {
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
+    border-radius: 5px;
     color: #f9f8f4;
 }
 
-.nav-topics a:hover {
+.mobile-nav-menu a:hover {
     background-color: #696969;
     transition: transform 0.8s, background-color 0.3s;
-}
-
-.close-nav {
-    width: 100%;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 1000;
 }
 
 .nav-container {
@@ -99,33 +46,6 @@
     justify-content: space-between;
     margin: auto;
     padding: 0px 10px;
-}
-
-.mobile-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.logo {
-    width: 104px;
-    height: 104px;
-}
-
-.logo-box {
-    width: 174px;
-    display: flex;
-}
-
-.hamberger {
-    height: 50px;
-    width: 50px;
-    margin: 10px;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
 }
 
 .nav-buttons {
@@ -201,14 +121,4 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-@media (max-width: 800px) {
-    .desktop {
-        display: none;
-    }
-
-    .mobile {
-        display: flex;
-    }
 }
