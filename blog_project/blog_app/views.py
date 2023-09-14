@@ -15,6 +15,10 @@ class BoardViewSet(viewsets.ModelViewSet):
     serializer_class = BoardSerializer
 
 
+def post_test(request):
+    return render(request, "post.html")
+
+
 # 게시판 페이지
 def board_page(request):
     posts = Board.objects.all().order_by("-created_at")

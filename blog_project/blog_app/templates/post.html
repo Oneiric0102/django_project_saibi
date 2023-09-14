@@ -20,9 +20,13 @@
                 <div class="topic-box">일상</div>
                 {% comment %} 내용  {% endcomment %}
                 <div class="post-content">
-                    <h5>Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo scelerisque euismod euismod.</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo scelerisque euismod euismod.
+                    </p>
                     <img src={% static 'img/ex3.svg' %}>
-                    <h5>Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo scelerisque euismod euismod. Turpis dictumst luctus nisi placerat purus dolor luctus vitae pretium. Gravida faucibus scelerisque quis mi consequat malesuada.</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo scelerisque euismod euismod. Turpis dictumst luctus nisi placerat purus dolor luctus vitae pretium. Gravida faucibus scelerisque quis mi consequat malesuada.
+                    </p>
                 </div>
             </div>
             {% comment %} {{post.upload_date}}
@@ -71,27 +75,31 @@
             </div>
             <button onclick="" class="share-button">공유하기</button>
         </div>
-        <div class="anoter-big-box">
+        <div class="another-big-box">
             <div class="another-post-box">
                 <div class="post-box">
                     <p>다음글</p>
                 {% comment %} <a href="{% url "post" owner_id=next_post.writer post_id=next_post.id%}"> {% endcomment %}
-                    <p class="post-name">title</p>
+                    <p class="post-name"><a href="">title</a></p>
                     {{next_post.title}}
                 </div>
+                <p>
                     2023.09.08
                     {{next_post.upload_date}}
+                </p>
                 {% comment %} </a> {% endcomment %}
             </div>
             <div class="another-post-box">
                 <div class="post-box">
                 <p>이전글</p>
                 {% comment %} <a href="{% url "post" owner_id=prev_post.writer post_id=prev_post.id%}"> {% endcomment %}
-                    <p class="post-name">title</p>
+                    <p class="post-name"><a href="">title</a></p>
                     {{prev_post.title}}
                 </div>
-                2023.09.07
+                <p>
+                    2023.09.07
                     {{prev_post.upload_date}}
+                </p>
                 {% comment %} </a> {% endcomment %}
             </div>
         </div>
