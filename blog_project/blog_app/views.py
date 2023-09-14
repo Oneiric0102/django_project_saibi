@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from .models import Board
 from .serializers import BoardSerializer
 from .forms import PostForm
+from time import sleep
 
 
 # Create your views here.
@@ -50,6 +51,9 @@ def signup(request):
             # 로그인 한다
             # auth.login(request, user)
             return redirect("/")
+        else:
+            return render(request, "failed.html")
+
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, "signup.html")
 
@@ -75,8 +79,7 @@ def login(request):
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
             return render(
-                request, "login.html", {"error": "username or password is incorrect."}
-            )
+                request, "failed_login.html")
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
     else:
         return render(request, "login.html")
