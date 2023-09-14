@@ -1,15 +1,29 @@
 /* admin, client */
-*{
+* {
     font-family: 'Pretendard', sans-serif;
 }
-.nav-bar{
+
+.display_none {
+    display: none !important;
+}
+
+.desktop {
+    display: flex;
+}
+
+.mobile {
+    display: none;
+    flex-direction: column;
+}
+
+.nav-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 104px;
     position: fixed;
     top: 0;
-    background-color: #000;
+    background-color: #1e1e1e;
     width: 100%;
     z-index: 999;
     color: #f9f8f4;
@@ -17,75 +31,184 @@
     font-family: 'Pretendard', sans-serif;
 }
 
-.nav-container{
-    width: 1024px;
+.moblie-nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 104px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.mobile-nav-menu {
+    flex-basis: 320px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    z-index: 1000;
+    padding: 10px;
+    animation-duration: 0.5s;
+    animation-name: slide_open;
+}
+
+@keyframes slide_open {
+    from {
+        margin-left: -320px;
+    }
+
+    to {
+        margin-left: 0px;
+    }
+}
+
+@keyframes slide_close {
+    from {
+        margin-left: 0px;
+    }
+
+    to {
+        margin-left: -320px;
+    }
+}
+
+.mobile-nav-menu a {
+    margin: 10px;
+    padding: 10px;
+    color: #f9f8f4;
+}
+
+.nav-topics a:hover {
+    background-color: #696969;
+    transition: transform 0.8s, background-color 0.3s;
+}
+
+.close-nav {
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1000;
+}
+
+.nav-container {
+    flex-basis: 1024px;
+    flex-shrink: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    padding: 0px 10px;
 }
 
-a:link {
-    color : #f9f8f4;
-}
-a:visited {
-    color : #f9f8f4;
-}
-a:hover {
-    color : #f9f8f4;
-}
-a:active {
-    color : #f9f8f4
+.mobile-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
-.nav-buttons{
+.logo {
+    width: 104px;
+    height: 104px;
+}
+
+.logo-box {
+    width: 174px;
+    display: flex;
+}
+
+.hamberger {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-buttons {
     display: flex;
     align-items: center;
-    gap: 56px;
+    gap: 30px;
 }
 
-.nav-topics{
+.nav-topics {
     display: flex;
-    gap: 40px;
-}
-.nav-topics a {
-    text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+    gap: 10px;
 }
 
-button{
+.nav-topics a {
+    width: 30px;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 2px;
+    color: #f9f8f4;
+}
+
+.nav-topics a:hover {
+    background-color: #696969;
+    transition: transform 0.8s, background-color 0.3s;
+}
+
+button {
     cursor: pointer;
     all: unset;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
 .primary-button {
     display: inline-block;
     background-color: #f9f8f4;
-    border-radius: 2px; /* 너비와 높이가 같으므로 50%로 설정하면 동그라미 모양이 됩니다 */
+    flex-shrink: 0;
+    border-radius: 2px;
+    /* 너비와 높이가 같으므로 50%로 설정하면 동그라미 모양이 됩니다 */
     text-decoration: none;
     text-align: center;
     font-weight: bold;
-    color:#1e1e1e;
+    color: #1e1e1e;
     padding: 10px 25px;
-    }
+}
 
 
 .primary-button:hover {
     background-color: #696969;
     transition: transform 0.8s, background-color 0.3s;
     color: #ffffff;
-    }
+}
 
-.logout-button:hover{
-    color: rgb(255, 162, 162);
+.logout-button {
+    display: inline-block;
+    border-radius: 2px;
+    /* 너비와 높이가 같으므로 50%로 설정하면 동그라미 모양이 됩니다 */
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 25px;
+    color: #f9f8f4;
+}
+
+.logout-button:hover {
+    color: rgb(255, 64, 64);
     transition: transform 0.8s, color 0.3s;
 }
 
-.row-box{
+.row-box {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
+}
+
+@media (max-width: 800px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
 }

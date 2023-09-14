@@ -7,6 +7,7 @@ urlpatterns = [
     path("", views.board_page, name="board"),
     path("category/<str:category>", views.board_categorized, name="board_categorized"),
     path("post/<int:post_id>", views.post_page, name="post"),
+    path("post/", views.post_test, name="post_test"),
     path("write/", views.write_page, name="write"),
     path("login/", blog_app.views.login, name="login"),
     path("signup/", blog_app.views.signup, name="signup"),

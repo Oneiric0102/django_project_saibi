@@ -1,9 +1,8 @@
-
-*{
+* {
     font-family: 'Pretendard', sans-serif;
 }
 
-body{
+body {
     background-color: #f9f8f4;
 }
 
@@ -25,22 +24,22 @@ body{
 
 }
 
-.first-post-box h3{
+.first-post-box h3 {
     font-size: 48px;
     font-weight: 700;
     margin: 0;
     padding-top: 3%;
 }
 
-.first-post-box p{
+.first-post-box p {
     font-weight: 500;
     margin-bottom: 10px;
     /* border : 5px solid white; */
 }
 
-.first-post-box .container{
+.first-post-box .container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 415px;
@@ -48,7 +47,7 @@ body{
     /* border : 5px solid white; */
 }
 
-.first-post-box .container .post-info-box{
+.first-post-box .container .post-info-box {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -62,7 +61,7 @@ body{
     line-height: 2;
 }
 
-.first-post-box button{
+.first-post-box button {
     background-color: #3a3a3a;
     color: #f9f8f4;
     border-radius: 2px;
@@ -71,7 +70,7 @@ body{
     font-size: 14px
 }
 
-.first-post-box button:hover{
+.first-post-box button:hover {
     background-color: #474747;
     transition: transform 0.8s;
 }
@@ -83,12 +82,12 @@ body{
     padding-left: 30%;
 }
 
-.first-post-box .container .thumbnail-img img{
+.first-post-box .container .thumbnail-img img {
     object-fit: cover;
     min-width: 600px;
     min-height: -webkit-fill-available;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     /* border : 5px solid white; */
 }
 
@@ -101,23 +100,23 @@ body{
 }
 
 
-.container{
+.container {
     width: 1024px;
-    margin: auto;    
+    margin: auto;
     display: flex;
     gap: 38px;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: left;
-    
+
 }
 
-.card{
-    width: calc((100% - (2 * 38px)) / 3); 
+.card {
+    width: calc((100% - (2 * 38px)) / 3);
     display: flex;
     flex-direction: column;
     gap: 16px;
-    flex:0;
+    flex: 0;
     height: auto;
 }
 
@@ -143,7 +142,8 @@ h3 {
     font-size: 20px;
     margin-bottom: 8px;
 }
-.card-info-box h3{
+
+.card-info-box h3 {
     font-size: 20px;
     font-weight: 700;
 }
