@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static 'css/postlist.css' %}?{% now "U" %}">
 </head>
 <section class ="post-list">
+<head>
+    <link rel="stylesheet" href="{% static 'css/postlist.css' %}?{% now "U" %}">
+</head>
+<section class ="post-list">
     <!-- 최고 조회수 게시글 = best_article -->
     <header class = "first-post-box desktop">
         <div class="container">
@@ -39,6 +43,7 @@
         {{best_post.title}}
         {{best_post.content}}
         <img src="{{best_post.img_url}}" alt="">
+        {% comment %} <a class="READ MORE" href="{% url "post" owner_id=best_post.writer post_id=best_post.id%}">Read more</a> {% endcomment %}
         {% comment %} <a class="READ MORE" href="{% url "post" owner_id=best_post.writer post_id=best_post.id%}">Read more</a> {% endcomment %}
     </header>
     <!-- 전체 게시글들 -->
@@ -87,6 +92,8 @@
                         {{post.title}}
                         {{post.content}}
                     </a>
+                </div>
+            {% endfor %} {% endcomment %}
                 </div>
             {% endfor %} {% endcomment %}
     </article>
