@@ -6,15 +6,34 @@
 </head>
 <section class ="post-list">
     <!-- 최고 조회수 게시글 = best_article -->
-    <header class = "first-post-box">
+    <header class = "first-post-box desktop">
         <div class="container">
             <div class="post-info-box">
                 <h3>Best Post</h3>
-                <p>Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo scelerisque euismod euismod. Turpis dictumst luctus nisi placerat purus dolor luctus vitae pretium. Gravida faucibus scelerisque quis mi consequat malesuada.
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                 </p>
-                <button>Read me</button>
+                <button>READ MORE</button>
             </div>
             <div class="thumbnail-img"><img src = {% static 'img/best.svg' %}></div>
+        </div>
+        
+        {{best_post.title}}
+        {{best_post.content}}
+        <img src="{{best_post.img_url}}" alt="">
+        {% comment %} <a class="READ MORE" href="{% url "post" owner_id=best_post.writer post_id=best_post.id%}">Read more</a> {% endcomment %}
+    </header>
+    <header class = "first-post-box mobile" style="background-image: url('{% static 'img/best.svg' %}');background-size : cover ">
+        <div class="container">
+            <div class="post-info-box">
+                <h3>Best Post</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                </p>
+                <button>READ MORE</button>
+            </div>
         </div>
         
         {{best_post.title}}
@@ -25,7 +44,7 @@
     <!-- 전체 게시글들 -->
     <article class = "post-box">
         <div class="container">
-            <div class="card"><a href="#">
+            <a class="card-link" href="#"><div class="card">
                 <div class="card-info-box">
                         <img src="{% static 'img/ex1.svg' %}">
                         <p>2023-09-07 12:13:01</p>
@@ -33,7 +52,7 @@
                         <div class="sub-info">Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo </div>
                 </div>
             </div></a>
-            <div class="card"><a href="#">
+            <a class="card-link" href="#"><div class="card">
                 <div class="card-info-box">
                         <img src="{% static 'img/ex2.svg' %}">
                         <p>2023-09-07 12:13:01</p>
@@ -41,7 +60,7 @@
                         <div class="sub-info">Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo </div>
                 </div>
             </div></a>
-            <div class="card"><a href="#">
+            <a class="card-link" href="#"><div class="card">
                 <div class="card-info-box">
                         <img src="{% static 'img/ex1.svg' %}">
                         <p>2023-09-07 12:13:01</p>
@@ -49,7 +68,7 @@
                         <div class="sub-info">Lorem ipsum dolor sit amet consectetur. Non pretium arcu praesent cursus aliquam pellentesque. Euismod consectetur fames vitae nunc gravida morbi felis porttitor integer. Ridiculus id purus feugiat et mi justo </div>
                 </div>
             </div></a>
-            <div class="card"><a href="#">
+            <a class="card-link" href="#"><div class="card">
                 <div class="card-info-box">
                         <img src="{% static 'img/ex2.svg' %}">
                         <p>2023-09-07 12:13:01</p>

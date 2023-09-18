@@ -6,8 +6,8 @@
 <div class="container_write">
   <div class="big-box">
     <form class="write-big-box">
-      <div>
-        <form method="POST" class="write-box">
+      <div class="write-box">
+        <form method="POST">
           {% csrf_token %} {{form.media}} {{form.as_p}}
         </form>
       </div>
