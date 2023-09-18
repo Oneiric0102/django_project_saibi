@@ -1,17 +1,16 @@
-*{
+* {
     font-family: 'Pretendard', sans-serif;
 }
 
-body{
+body {
     background-color: #f9f8f4;
-        font-family: 'Pretendard', sans-serif;
-
+    font-family: 'Pretendard', sans-serif;
 }
 
-.container_write{
-    width: 1024px;
+.container_write {
+    flex-basis: 1024px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     margin: auto;
     margin-top: 140px;
@@ -19,14 +18,17 @@ body{
     margin-bottom: 200px;
 }
 
-.big-box{
+.big-box {
     display: flex;
     flex-direction: row;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: 1024px;
     gap: 20px;
 }
 
-.box{
-    height: 150px;
+.box {
+    flex-basis: 150px;
     display: flex;
     border: 1px solid #dbdbdb;
     padding: 16px;
@@ -34,62 +36,76 @@ body{
     justify-content: space-between;
 }
 
-.write-big-box{
+.write-big-box {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 2%;
+    width: 73.5%;
 }
 
+
+
 .write-box {
-    flex: 3;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 5px;
+    width: 100%;
+}
+
+.write-box p,
+.write-box div,
+.write-box div textarea {
+    width: 100% !important;
+}
+
+.write-box p input {
+    width: calc(100% - 4px) !important;
 }
 
 
 .post-info-box {
-    flex: 1; 
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 24.5%;
+    flex-shrink: 1;
 }
 
-.title{
+.title {
     border: 1px solid #dbdbdb;
     padding: 11px 16px;
     font-size: 16px;
 }
 
-h2{
+h2 {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-p{
+p {
     font-size: 13px;
 }
 
-.button-line{
+.button-line {
     font-size: 13px;
     border-bottom: 1px solid #000;
     width: fit-content;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.save-box{
+.save-box {
     display: flex;
     justify-content: space-between;
     gap: 8px;
 }
 
-.temp-save-button{
+.temp-save-button {
     padding: 4px 17px;
     border: none;
     border: 1px solid #1e1e1e;
@@ -98,7 +114,7 @@ p{
     text-align: center;
 }
 
-.save-button{
+.save-button {
     padding: 4px 17px;
     border: none;
     background-color: #1e1e1e;
@@ -107,7 +123,7 @@ p{
     text-align: center;
 }
 
-.delete-button{
+.delete-button {
     padding: 4px 17px;
     border: none;
     background-color: #ff3f3f;
@@ -115,45 +131,56 @@ p{
     width: 100%;
 }
 
-.temp{
+.temp {
     border: 1px #1e1e1e solid;
     background-color: transparent;
     color: #1e1e1e;
 }
 
-textarea{
+textarea {
     resize: none;
     height: 500px;
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
-span{
+span {
     font-weight: 700;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-.ai-button{
+.ai-button {
     display: flex;
     border: 1px solid #dbdbdb;
     padding: 16px;
     align-items: center;
     justify-content: space-between;
-    height: 88px;
-    width: 264px;
+    flex-basis: 88px;
 }
 
-.ai-button img{
+.ai-button img {
     height: 40px;
     width: 126px;
 }
 
-.loading-animation img{
+.loading-animation img {
     width: 40px;
+}
+
+@media (max-width: 800px) {
+    .big-box {
+        flex-direction: column;
+    }
+
+    .write-big-box,
+    .post-info-box {
+        width: calc(100% - 40px);
+        padding: 0px 20px;
+    }
 }
