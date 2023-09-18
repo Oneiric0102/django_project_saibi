@@ -173,6 +173,12 @@ button {
     width: 40px;
 }
 
+@media (max-width: 1024px) {
+    .big-box {
+        padding: 0 10px;
+    }
+}
+
 @media (max-width: 800px) {
     .big-box {
         flex-direction: column;
@@ -180,7 +186,6 @@ button {
 
     .write-big-box,
     .post-info-box {
-        width: calc(100% - 40px);
-        padding: 0px 20px;
+        width: 100%;
     }
 }
