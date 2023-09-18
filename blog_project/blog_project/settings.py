@@ -196,8 +196,10 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #ckeditor
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_IMAGE_BACKEND = "pillow" 
+# CKEDITOR_IMAGE_BACKEND = "pillow" 
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -211,5 +213,20 @@ CKEDITOR_CONFIGS = {
         'width': 740,  # title 및 content 창의 너비를 조정
         'height': 300,  # title 및 content 창의 높이를 조정
         'resize_enabled': False,  # 사용자가 크기를 조정할 수 없도록 설정
+        "removePlugins": "stylesheetparser", 
+        "removePlugins": "exportpdf",
     }
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

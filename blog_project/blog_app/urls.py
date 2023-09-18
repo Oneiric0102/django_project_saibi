@@ -4,15 +4,17 @@ import blog_app.views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path("", views.board_page, name="board"),
+    path("", views.post_list, name="board"),
     path("category/<str:category>", views.board_categorized, name="board_categorized"),
     path("post/<int:post_id>", views.post_page, name="post"),
+    path('post_list/<str:topic>/', views.post_list, name='post_list_by_topic'),
     path("post/", views.post_test, name="post_test"),
-    path("write/", views.write_page, name="write"),
-    path("login/", blog_app.views.login, name="login"),
+    path("login/", blog_app.views.custom_login, name="login"),
     path("signup/", blog_app.views.signup, name="signup"),
     path("logout/", blog_app.views.logout, name="logout"),
-    # path("edit/<int:post_id>", views.edit, name="edit"),
-    # path("delete/<int:post_id>", views.delete, name="delete"),
+    path('write/', views.create_or_update_post, name='create_or_update_post'),
+    path('post/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('edit_post/<int:post_id>/', views.create_or_update_post, name='create_or_update_post'),
+    path('api/blog_posts/', views.BlogPostList.as_view(), name='blogpost-list'),
     path("failed/", blog_app.views.signup, name="failed"),
 ]
