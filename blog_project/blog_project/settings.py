@@ -199,7 +199,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #ckeditor
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-# CKEDITOR_IMAGE_BACKEND = "pillow" 
+CKEDITOR_IMAGE_BACKEND = "pillow" 
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 CKEDITOR_CONFIGS = {
@@ -209,7 +209,7 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline', 'Strike', 'NumberedList', 'BulletedList'],
             ['Link', 'Unlink'],
             ['RemoveFormat'],
-            ['Styles', 'Format'],
+            ['Styles', 'Format','Image'],
         ],
         'width': 740,  # title 및 content 창의 너비를 조정
         'height': 300,  # title 및 content 창의 높이를 조정

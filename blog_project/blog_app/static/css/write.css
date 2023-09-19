@@ -67,7 +67,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 24.5%;
+    /* width: 24.5%; */
     flex-shrink: 1;
 }
 

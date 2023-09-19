@@ -16,17 +16,15 @@ class PostForm(forms.ModelForm):
     )
     content = forms.CharField(
         widget=CKEditorWidget(config_name="default", attrs={"id": "content"}),
-        label="content",
+        label="",
     )
+    
     class Meta:
         model = Board
-        exclude = ['created_at','user_id','topic','views','publish','image']
+        exclude = ['created_at','user_id','views','publish','image']
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # self.fields['topic'].required = False
-        # self.fields['publish'].required = False
-        # self.fields['views'].required = False
 
 class CustomLoginForm(forms.Form):
     username = forms.CharField(
