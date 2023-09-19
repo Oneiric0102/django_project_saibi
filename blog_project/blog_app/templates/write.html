@@ -1,53 +1,167 @@
 {% extends 'base_w.html' %} {% load static %} {% block content %}
 <head>
   <link rel="stylesheet" href="{% static 'css/write.css' %}?{% now "U" %}">
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+
 </head>
+    <script>
+      // Initialize CKEditor
+      {% comment %} CKEDITOR.replace('content'); {% endcomment %}
+
+      // Handle image upload and insert into CKEditor
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('imageUpload').addEventListener('change', function () {
+            let formData = new FormData();
+            formData.append('file', this.files[0]);
+
+            fetch('media/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const editor = CKEDITOR.instances.content;
+                    editor.insertHtml(`<img src="${data.location}" />`);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        
+
+        // Handle AI Autocomplete
+        document.getElementById('aiAutocompleteButton').addEventListener('click', function () {
+            // Loading animation
+            document.getElementById('loading-animation').style.display = 'block';
+            document.getElementById('ai-img').style.display = 'none';
+
+            // Get the title from the input field
+            const title = document.getElementsByName('title')[0].value;
+
+            // Get the current content from CKEditor
+            const editor = CKEDITOR.instances.content;
+            const currentContent = editor.getData();
+
+            // Make a request to ChatGPT API with the title
+            fetch('/autocomplete/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}', // Replace with your CSRF token
+                },
+                body: new URLSearchParams({
+                    'title': title
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loading-animation').style.display = 'none';
+                    document.getElementById('ai-img').style.display = 'block';
+
+                    // Append the AI Autocomplete data to the current content
+                    data.message = data.message.replace(/\n/g, '<br>');
+                    editor.setData(currentContent + data.message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('loading-animation').style.display = 'none';
+                });
+        });
+      });
+  </script>
+  {% if temp_load %}
+  <script>
+    alert('임시저장된 글을 불러옵니다');
+  </script>
+{% endif %}
 <!-- 메인-->
 <div class="container_write">
   <div class="big-box">
-    <form class="write-big-box">
-      <div class="write-box">
-        <form method="POST">
-          {% csrf_token %} {{form.media}} {{form.as_p}}
-        </form>
-      </div>
+    <form class="write-big-box" method="POST"  action="{% if edit_mode %}{% url 'create_or_update_post' post.id %}{% else %}{% url 'create_or_update_post' %}{% endif %}" enctype="multipart/form-data">
+          <div class="write-box">
+          {% csrf_token %} 
+          {% comment %} {{form.media}} {{form.title}} {{form.content}} {% endcomment %}
+          {{form.media}} {{form.as_p}}
+          {% comment %} <input
+              type="text"
+              id="title"
+              name="title"
+              class="title"
+              placeholder="제목"
+              value="{{ post.title }}"
+            />
+            
+
+            <textarea
+              id="content"
+              name="content"
+            >{{ post.content}}</textarea> {% endcomment %}
+          </div>
+        
+      
 
       <div class="post-info-box">
-        <button class="ai-button">
-          <img src="{% static 'img/AI.svg' %}" alt="AI 로고" />
+        <button type="button" id="aiAutocompleteButton" class="ai-button">
+          <img id="ai-img" src="{% static 'img/ai.svg' %}" alt="AI 아이콘" />
+          <div id="loading-animation" style="display: none;">
+            <img src="{% static 'img/loading.gif' %}" alt="로딩 중" />
+          </div> 
         </button>
         <div class="box">
           <h2>TOPIC</h2>
-
           <label
-            ><input type="checkbox" name="topic" value="일상" /> 일상</label
+          ><input type="radio" id="all" name="topic" value="전체" /> 전체</label
+        >
+          <label
+            ><input type="radio" id="daily" name="topic" value="일상" /> 일상</label
           >
 
           <label
-            ><input type="checkbox" name="topic" value="요리" /> 요리</label
+            ><input type="radio" id="cook" name="topic" value="요리" /> 요리</label
           >
 
           <label
-            ><input type="checkbox" name="topic" value="여행" /> 여행</label
+            ><input type="radio" id="travel" name="topic" value="여행" /> 여행</label
           >
 
           <label
-            ><input type="checkbox" name="topic" value="영화" /> 영화</label
+            ><input type="radio" id="movie" name="topic" value="영화" /> 영화</label
           >
 
           <label
-            ><input type="checkbox" name="topic" value="IT" /> IT /
+            ><input type="radio" id="IT" name="topic" value="IT" /> IT /
             전자기기</label
           >
         </div>
         <div class="box">
-          <h2>UPLOAD INFO</h2>
-          <button class="button-line">이미지 업로드</button>
+          <div class="info">
+            <h2>UPLOAD INFO</h2>
+            <input type="file" name="file" id="imageUpload" style="display:none;">
+            <button type="button" class="button-line" onclick="document.getElementById('imageUpload').click();">이미지 업로드</button>
+          </div>
           <div class="save-box">
-            <button class="temp-save-button">임시저장</button>
-            <button class="save-button">글 작성</button>
+              {% if edit_mode %}
+                  <input
+                    type="submit"
+                    name="delete-button" 
+                    class="delete-button"
+                    value="삭제"
+                  />
+                  <input
+                    type="submit"
+                    class="save-button"
+                    value="수정"
+                  />
+                  
+              {% else %}
+                <input type="submit" name="temp-save-button" class="temp-save-button" value="임시저장" />
+                <input type="submit" name="save-button" class="save-button" value="글 작성" />
+              {% endif %}
           </div>
         </div>
+        
       </div>
     </form>
   </div>

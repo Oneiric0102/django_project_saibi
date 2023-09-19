@@ -16,7 +16,10 @@ from django.views import View
 from django.http import JsonResponse
 from django.core.files.storage import default_storage
 
-# Create your views here.
+
+import openai
+
+# # Create your views here.
 # Board 데이터베이스 불러오기
 class BoardViewSet(viewsets.ModelViewSet):
     queryset = Board.objects.all()
@@ -251,3 +254,49 @@ def create_or_update_post(request, post_id=None):
 
     return render(request, template, context)
 
+API_KEY = getattr(settings, 'OPENAI', 'OPENAI')
+
+# Chat gpt API 사용
+openai.api_key = API_KEY
+
+
+# 글 자동완성 기능
+def autocomplete(request):
+    if request.method == "POST":
+
+        #제목 필드값 가져옴
+        prompt = request.POST.get('title')
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": prompt},
+                ],
+            )
+            # 반환된 응답에서 텍스트 추출해 변수에 저장
+            message = response['choices'][0]['message']['content']
+        except Exception as e:
+            message = str(e)
+        return JsonResponse({"message": message})
+    return render(request, 'write.html')
+
+class image_upload(View):
+    
+    # 사용자가 이미지 업로드 하는경우 실행
+    def post(self, request):
+        
+        # file필드 사용해 요청에서 업로드한 파일 가져옴
+        file = request.FILES['file']
+        
+        # 저장 경로 생성
+        filepath = 'uploads/' + file.name
+        
+        # 파일 저장
+        filename = default_storage.save(filepath, file)
+        
+        # 파일 URL 생성
+        file_url = settings.MEDIA_URL + filename
+        
+        # 이미지 업로드 완료시 JSON 응답으로 이미지 파일의 url 반환
+        return JsonResponse({'location': file_url})
