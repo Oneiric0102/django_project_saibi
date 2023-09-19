@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-thumbnail-img">
                             {% if  post.content|get_img_src %}
-                                <img src="{{post.img_link}}" alt="Thumbnail image" />
+                                <img src="{{post.content|get_img_src}}" alt="Thumbnail image" />
                             {% else %}
                                 <div 
                                     style="width: 100%; height: 100%; background-color: transparent"
