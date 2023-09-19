@@ -79,9 +79,11 @@ h5 {
     font-size: 16px;
     padding: 30px 0;
     text-align: center;
+    width: 100%;
 }
 
 .post-content p {
+    width: 100%;
     text-align: left;
 }
 
@@ -155,6 +157,7 @@ h5 {
 .another-post-box a {
     display: flex;
     justify-content: space-between;
+    padding: 10px 0;
 }
 
 .post-box {

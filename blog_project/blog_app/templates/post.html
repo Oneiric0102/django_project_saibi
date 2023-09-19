@@ -67,35 +67,33 @@
             
             <div class="another-big-box">
                 {% if next_post %}
-                <div class="another-post-box">
-                    <a href="">                    
-                        <div class="post-box">
-                            <p>다음글</p>
-                            <p class="post-name"><a href="{% url 'post_detail' next_post.id %}"
-                                >{{ next_post.title }}</a
-                            ></p>
-                        </div>
-                        <p>
-                            {{next_post.created_at}}
-                        </p>
-                    </a>
-                </div>
+                    <div class="another-post-box">
+                        <a href="{% url 'post_detail' next_post.id %}">                 
+                            <div class="post-box">
+                                <p>다음글</p>
+                                <p class="post-name">{{ next_post.title }}</p>
+                            </div>
+                            <p>
+                                {{next_post.created_at}}
+                            </p>
+                        </a>
+                    </div>
                 {% else %}
                         <div class="another-post-box"></div>
                         {% endif %}
                 {% if previous_post %}
-                <div class="another-post-box">                 
+                <div class="another-post-box">
+                    <a href="{% url 'post_detail' previous_post.id %}">                   
                         <div class="post-box">
                             <p>이전글</p>
                             {% comment %} <a href="{% url "post" owner_id=prev_post.writer post_id=prev_post.id%}"> {% endcomment %}
-                            <p class="post-name"><a href="{% url 'post_detail' previous_post.id %}"
-                                >{{previous_post.title}}</a></p>
-                            
+                            <p class="post-name">{{previous_post.title}}</p>
                         </div>
                         <p>
                             
                             {{previous_post.created_at}}
                         </p>
+                    </a>
                 </div>
                         {% else %}
                         <div class="another-post-box"></div>

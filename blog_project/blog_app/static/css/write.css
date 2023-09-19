@@ -32,6 +32,7 @@ body {
     display: flex;
     border: 1px solid #dbdbdb;
     padding: 16px;
+    width: calc(100% - 32px);
     flex-direction: column;
     justify-content: space-between;
 }
@@ -40,7 +41,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 2%;
-    width: 73.5%;
+    width: 100%;
 }
 
 
@@ -49,25 +50,22 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 100%;
+    width: 73.5%;
 }
 
-.write-box p,
-.write-box div,
-.write-box div textarea {
+.write-box div {
     width: 100% !important;
 }
 
-.write-box p input {
+.write-box input {
     width: calc(100% - 4px) !important;
 }
-
 
 .post-info-box {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    /* width: 24.5%; */
+    width: 24.5%;
     flex-shrink: 1;
 }
 
@@ -161,7 +159,9 @@ button {
     border: 1px solid #dbdbdb;
     padding: 16px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
+    width: calc(100% - 32px);
     /* flex-basis: 88px; */
 }
 
@@ -181,11 +181,12 @@ button {
 }
 
 @media (max-width: 800px) {
-    .big-box {
+    .write-big-box {
         flex-direction: column;
+        gap: 20px;
     }
 
-    .write-big-box,
+    .write-box,
     .post-info-box {
         width: 100%;
     }
