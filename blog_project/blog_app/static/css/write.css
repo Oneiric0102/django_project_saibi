@@ -156,17 +156,18 @@ button {
 }
 
 .ai-button {
+    font-family: 'Pretendard', sans-serif;
     display: flex;
     border: 1px solid #dbdbdb;
     padding: 16px;
     align-items: center;
     justify-content: space-between;
-    flex-basis: 88px;
+    /* flex-basis: 88px; */
 }
 
 .ai-button img {
     height: 40px;
-    width: 126px;
+    /* width: 126px; */
 }
 
 .loading-animation img {

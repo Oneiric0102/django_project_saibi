@@ -17,16 +17,26 @@
     <header class = "desktop">
         <div class="nav-bar_w">
             <div class="nav-container_w">
-                <a href="#" class="logo-link">
+                <a href="{% url 'board' %}" class="logo-link">
                     <img src="{%static 'img/42b_black.svg'%}" alt="헤더 로고" class="logo"
                 /></a>
                 <div class="nav-buttons_w">
                     <div class="nav-topics_w">
-                        <a href="#">일상</a>
-                        <a href="#">요리</a>
-                        <a href="#">여행</a>
-                        <a href="#">영화</a>
-                        <a href="#">IT</a>
+                        <a href="{% url 'post_list_by_topic' topic='일상' %}"
+                        ><button>일상</button></a
+                        >
+                        <a href="{% url 'post_list_by_topic' topic='요리' %}"
+                        ><button>요리</button></a
+                        >
+                        <a href="{% url 'post_list_by_topic' topic='여행' %}"
+                        ><button>여행</button></a
+                        >
+                        <a href="{% url 'post_list_by_topic' topic='영화' %}"
+                        ><button>영화</button></a
+                        >
+                        <a href="{% url 'post_list_by_topic' topic='IT' %}"
+                        ><button>IT</button></a
+                        >
                     </div>
                     <div class="row-box_w">
                         {% if user.is_authenticated %}
@@ -34,7 +44,7 @@
                         <form id="logout" method="POST" action="{% url 'logout' %}">
                             {% csrf_token %} <input type="hidden" />
                         </form>
-                        <button class="primary-button_w" onclick="">Just Write!</button>
+                        <button class="primary-button_w"><a href="{% url 'create_or_update_post' %}">Just Write!</a></button>
                         {% else %}
                         <button class="primary-button_w" onclick=""><a href="{% url 'login' %}" style="color:white">Login</a></button> 
                         {% endif %}
