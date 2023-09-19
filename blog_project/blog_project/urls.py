@@ -27,4 +27,8 @@ urlpatterns = [
     path('accounts/',include('allauth.urls')),
     ############################################################################## 09/12추가3
     path('ckeditor/', include('ckeditor_uploader.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
