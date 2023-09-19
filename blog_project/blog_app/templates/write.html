@@ -82,32 +82,18 @@
     <form class="write-big-box" method="POST"  action="{% if edit_mode %}{% url 'create_or_update_post' post.id %}{% else %}{% url 'create_or_update_post' %}{% endif %}" enctype="multipart/form-data">
           <div class="write-box">
           {% csrf_token %} 
-          {% comment %} {{form.media}} {{form.title}} {{form.content}} {% endcomment %}
           {{form.media}} {{form.as_p}}
-          {% comment %} <input
-              type="text"
-              id="title"
-              name="title"
-              class="title"
-              placeholder="제목"
-              value="{{ post.title }}"
-            />
-            
-
-            <textarea
-              id="content"
-              name="content"
-            >{{ post.content}}</textarea> {% endcomment %}
           </div>
         
       
 
       <div class="post-info-box">
         <button type="button" id="aiAutocompleteButton" class="ai-button">
-          <img id="ai-img" src="{% static 'img/ai.svg' %}" alt="AI 아이콘" />
+          <img id="ai-img" src="{% static 'img/ai_2.svg' %}" alt="AI 아이콘" />
           <div id="loading-animation" style="display: none;">
             <img src="{% static 'img/loading.gif' %}" alt="로딩 중" />
-          </div> 
+          </div>
+          AI 글 자동완성
         </button>
         <div class="box">
           <h2>TOPIC</h2>
