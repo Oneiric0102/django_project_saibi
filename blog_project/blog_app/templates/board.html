@@ -49,7 +49,7 @@
                         href="{% url 'post_detail' post.id %}"
                         >
                         <div class="card-info-box">
-                                <p>{{ post.created_at }} | {{post.user_id}}</p>
+                                <p>{{ post.created_at|date:'Y-m-d H:i' }} | {{post.user_id}}</p>
                                 <h3>{{ post.title }}</h3>
                                 <div class="sub-info">{{ post.content|text_only }} </div>
                         </div>
