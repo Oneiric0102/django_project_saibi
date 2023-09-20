@@ -12,7 +12,7 @@
             <div class="big-box">
                 <div class="post-info">
                     {% comment %} 게시 날짜 {% endcomment %}
-                    <h5>{{post.created_at}} | {{post.views}} 조회</h5>
+                    <h5>{{ post.created_at|date:'Y-m-d H:i' }} | {{post.views}} 조회</h5>
                     {% comment %} 제목 {% endcomment %}
                     <h1>{{post.title}}</h1>
                     {% comment %} 작성자 {% endcomment %}
@@ -74,7 +74,7 @@
                                 <p class="post-name">{{ next_post.title }}</p>
                             </div>
                             <p>
-                                {{next_post.created_at}}
+                                {{ next_post.created_at|date:'Y-m-d H:i' }}
                             </p>
                         </a>
                     </div>
@@ -91,7 +91,7 @@
                         </div>
                         <p>
                             
-                            {{previous_post.created_at}}
+                            {{ previous_post.created_at|date:'Y-m-d H:i' }}
                         </p>
                     </a>
                 </div>
