@@ -17,7 +17,9 @@
                     <button>READ MORE</button>
                 </div>
             </a>
+            {% if  post.content|get_img_src %}
             <div class="thumbnail-img"><img src = {{ post.content|get_img_src }}></div>
+            {% endif %}
         </div>
         <div class="container mobile" style="background-image:url('{{ post.content|get_img_src }}');background-repeat : no-repeat;background-size : cover ">
             <a href="{% url 'post_detail' post.id %}" >
@@ -38,11 +40,9 @@
                     <div class="card">
                         <div class="card-thumbnail-img">
                             {% if  post.content|get_img_src %}
-                                <img src="{{post.content|get_img_src}}" alt="Thumbnail image" />
+                                <img src="{{post.content|get_img_src}}" onerror="{% static "img/no_photos.svg" %}"alt="Thumbnail image" />
                             {% else %}
-                                <div 
-                                    style="width: 100%; height: 100%; background-color: transparent"
-                                ></div>
+                                <img src="{% static "img/no_photos.svg" %}" alt="Thumbnail image" style="width: auto; height: 100%; background-color: transparent" />
                             {% endif %}
                         </div>
                         <a 
